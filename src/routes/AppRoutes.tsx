@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../Home.tsx'
-//import Servicios from '../pages/serviciosAApos/servicios.tsx'
+import Servicios from '../pages/serviciosAApos/servicios.tsx'
 import Documentos from '../pages/documentos/Documentos.tsx'
 
 export default function AppRoutes() {
@@ -8,7 +8,7 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/servicios" element={<Servicios />} /> */}
+        <Route path="/servicios" element={<Servicios />} />
         <Route path="/documentos" element={<Documentos />} />
       </Routes>
     </BrowserRouter>
