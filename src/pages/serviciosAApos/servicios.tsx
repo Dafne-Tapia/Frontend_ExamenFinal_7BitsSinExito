@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import {
   getServicios,
   crearServicio,
@@ -105,6 +107,8 @@ export default function Servicios() {
 
   return (
     <>
+      <Navbar />
+
       <section className="servicios-hero">
         <h1>Nuestros Servicios</h1>
         <p>
@@ -213,6 +217,8 @@ export default function Servicios() {
           </div>
         )}
       </section>
+
+      <Footer />
     </>
   );
 }
