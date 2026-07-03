@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { getContactos, createContacto, updateContacto, deleteContacto } from '../../services/contactoService.ts';
+import { getContactos, createContacto, updateContacto, deleteContacto } from '../../services/contactosService.ts';
 import './Contactos.css';
 
 function Contactos() {
