@@ -7,7 +7,7 @@ import Procedimientos from '../pages/procedimientosAApos/procedimientos.tsx'
 
 export default function AppRoutes() {
   return (
-    <BrowserRouter basename="/Frontend_ExamenFinal_7BitsSinExito/">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Servicios />} />
