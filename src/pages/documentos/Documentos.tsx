@@ -1,3 +1,5 @@
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
 import {
   getDocumentos,
@@ -62,6 +64,8 @@ const Documentos = () => {
   };
 
   return (
+      <>
+       <Navbar />
     <div className="documentos-page">
       <h1>Documentos</h1>
 
@@ -128,6 +132,8 @@ const Documentos = () => {
         </table>
       )}
     </div>
+     <Footer />
+     </>
   );
 };
 
