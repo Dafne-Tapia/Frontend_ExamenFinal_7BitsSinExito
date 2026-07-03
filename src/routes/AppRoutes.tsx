@@ -7,6 +7,11 @@ import Categoria from '../pages/categoria/Categoria'
 import Procedimientos from '../pages/procedimientosAApos/procedimientos.tsx'
 import Horarios from '../pages/horariosAApos/Horarios.tsx'
 import Requisitos from '../pages/requisitos/Requisitos.tsx'
+import Categoria from '../pages/categoria/Categoria.tsx'
+import Procedimientos from '../pages/procedimientosAApos/procedimientos.tsx'
+import Horarios from '../pages/horariosAApos/Horarios.tsx'
+import Requisitos from '../pages/requisitos/Requisitos.tsx'
+
 
 export default function AppRoutes() {
   return (
