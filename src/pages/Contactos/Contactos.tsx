@@ -12,8 +12,7 @@ function Contactos() {
   const [formData, setFormData] = useState({
     tipo: '',
     descripcion: '',
-    valor: '',
-    orden: 0
+    valor: ''
   });
 
   const cargarContactos = async () => {
@@ -39,14 +38,14 @@ function Contactos() {
     e.preventDefault();
     try {
       if (editandoId) {
-        await updateContacto(editandoId, formData);
+        await updateContacto(editandoId, { ...formData, orden: 0 });
       } else {
-        await createContacto(formData);
+        await createContacto({ ...formData, orden: 0 });
       }
       cargarContactos();
       setMostrarForm(false);
       setEditandoId(null);
-      setFormData({ tipo: '', descripcion: '', valor: '', orden: 0 });
+      setFormData({ tipo: '', descripcion: '', valor: '' });
     } catch (error) {
       console.error('Error:', error);
     }
@@ -112,14 +111,6 @@ function Contactos() {
                 onChange={handleInputChange}
                 required
               />
-              <input
-                name="orden"
-                type="number"
-                placeholder="Orden"
-                value={formData.orden}
-                onChange={handleInputChange}
-                required
-              />
             </div>
             <div className="form-botones">
               <button type="submit" className="btn-guardar">
@@ -131,7 +122,7 @@ function Contactos() {
                 onClick={() => {
                   setMostrarForm(false);
                   setEditandoId(null);
-                  setFormData({ tipo: '', descripcion: '', valor: '', orden: 0 });
+                  setFormData({ tipo: '', descripcion: '', valor: '' });
                 }}
               >
                 Cancelar
@@ -158,8 +149,7 @@ function Contactos() {
                         setFormData({
                           tipo: c.tipo,
                           descripcion: c.descripcion,
-                          valor: c.valor,
-                          orden: c.orden
+                          valor: c.valor
                         });
                         setMostrarForm(true);
                       }}
