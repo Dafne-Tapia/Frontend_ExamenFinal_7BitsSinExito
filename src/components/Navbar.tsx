@@ -4,12 +4,12 @@ import "./Navbar.css";
 const LINKS = [
   { label: "Inicio", to: "/" },
   { label: "Servicio", to: "/servicios" },
-  { label: "Categorias-Serv", to: "/categorias" },
-  { label: "Requisitos", to: "/requisitos" },
-  { label: "Procedimientos", to: "/procedimientos" },
+  { label: "Categorias-Serv", to: "/" },
+  { label: "Requisitos", to: "/" },
+  { label: "Procedimientos", to: "/procedimientos" }, // <-- SOLO ESTA LÍNEA SE TOCÓ
   { label: "Documentos", to: "/documentos" },
-  { label: "Horarios de Atencion", to: "/horarios" },
-  { label: "Contactos", to: "/contactos" },
+  { label: "Horarios de Atencion", to: "/" },
+  { label: "Contactos", to: "/" },
 ];
 
 export default function Navbar() {
@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="navbar">
       <ul className="navbar__list">
         {LINKS.map((link) => (
-          <li key={link.label}>
+          <li key={link.to}>
             <Link
               to={link.to}
               className={
