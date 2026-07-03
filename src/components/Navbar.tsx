@@ -7,7 +7,7 @@ const LINKS = [
   { label: "Categorias-Serv", to: "/servicios" },
   { label: "Requisitos", to: "/servicios" },
   { label: "Procedimientos", to: "/servicios" },
-  { label: "Documentos", to: "/servicios" },
+  { label: "Documentos", to: "/documentos" },
   { label: "Horarios de Atencion", to: "/servicios" },
   { label: "Contactos", to: "/contactos" },
 ];
