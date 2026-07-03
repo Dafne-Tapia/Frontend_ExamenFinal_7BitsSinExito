@@ -4,12 +4,12 @@ import "./Navbar.css";
 const LINKS = [
   { label: "Inicio", to: "/" },
   { label: "Servicio", to: "/servicios" },
-  { label: "Categorias-Serv", to: "/servicios" },
-  { label: "Requisitos", to: "/servicios" },
-  { label: "Procedimientos", to: "/servicios" },
+  { label: "Categorias-Serv", to: "/" },
+  { label: "Requisitos", to: "/" },
+  { label: "Procedimientos", to: "/" },
   { label: "Documentos", to: "/documentos" },
-  { label: "Horarios de Atencion", to: "/servicios" },
-  { label: "Contactos", to: "/contactos" },
+  { label: "Horarios de Atencion", to: "/" },
+  { label: "Contactos", to: "/" },
 ];
 
 export default function Navbar() {
