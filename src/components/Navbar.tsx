@@ -4,7 +4,7 @@ import "./Navbar.css";
 const LINKS = [
   { label: "Inicio", to: "/" },
   { label: "Servicio", to: "/servicios" },
-  { label: "Categorias-Serv", to: "/" },
+  { label: "Categorias-Serv", to: "/categoria" },
   { label: "Requisitos", to: "/" },
   { label: "Procedimientos", to: "/" },
   { label: "Documentos", to: "/documentos" },
