@@ -1,5 +1,5 @@
 {
-  "name": "frontend-examenfinal-7bitssinexito",
+  "name": "Frontend_ExamenFinal_7BitsSinExito",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist",
+  "deploy": "gh-pages -d dist --dotfiles",
     "preview": "vite preview"
   },
   "devDependencies": {
