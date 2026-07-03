@@ -1,0 +1,48 @@
+.documentos-page {
+  padding: 2rem;
+}
+
+.documento-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.documento-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.documento-form button {
+  padding: 0.5rem 1rem;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.documento-form button:hover {
+  background-color: #005a9e;
+}
+
+.documentos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.documentos-table th,
+.documentos-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.documentos-table th {
+  background-color: #f5f5f5;
+}
+
+.error {
+  color: #d32f2f;
+}
