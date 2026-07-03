@@ -3,6 +3,8 @@ import Home from '../Home.tsx'
 import Servicios from '../pages/serviciosAApos/servicios.tsx'
 import Documentos from '../pages/documentos/Documentos.tsx'
 import Categoria from '../pages/categoria/Categoria'
+import Horarios from '../pages/horariosAApos/Horarios.tsx'
+
 
 export default function AppRoutes() {
   return (
@@ -12,6 +14,7 @@ export default function AppRoutes() {
         <Route path="/servicios" element={<Servicios />} />
           <Route path="/documentos" element={<Documentos />} />
           <Route path="/categoria" element={<Categoria />} />
+          <Route path="/horario" element={<Horarios />} />
       </Routes>
     </BrowserRouter>
   )
