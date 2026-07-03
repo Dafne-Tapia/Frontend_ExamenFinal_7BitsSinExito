@@ -1,0 +1,227 @@
+:root {
+  --azul-mision: #29abe2;
+  --azul-informa: #3aa9d8;
+  --naranja-razones: #df7c3c;
+  --texto-oscuro: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.section-title {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  margin: 0 0 28px;
+  color: var(--texto-oscuro);
+}
+
+.section-title--light {
+  color: #ffffff;
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hero__photo,
+.hero__poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__wide {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero__photo,
+  .hero__poster {
+    height: 240px;
+  }
+  .hero__wide {
+    height: 260px;
+  }
+}
+
+/* FRANJA DE MISIÓN */
+.mision {
+  background: var(--azul-mision);
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.mision p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* NUESTRO EQUIPO */
+.equipo {
+  background: #ffffff;
+  padding: 56px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.equipo__row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.equipo__row--reverse {
+  flex-direction: row-reverse;
+}
+
+.equipo__photo {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.equipo__cargo {
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.equipo__texto p {
+  margin: 0 0 8px;
+  line-height: 1.55;
+  color: #333;
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .equipo__row,
+  .equipo__row--reverse {
+    flex-direction: column;
+  }
+  .equipo__photo {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* AAPOS INFORMA */
+.informa {
+  background: var(--azul-informa);
+  padding: 56px 24px;
+}
+
+.informa__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.informa__card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.informa__thumb-wrap {
+  position: relative;
+}
+
+.informa__thumb {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.informa__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 34px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.informa__card h3 {
+  font-size: 15px;
+  margin: 14px 16px 6px;
+  color: var(--texto-oscuro);
+}
+
+.informa__card p {
+  font-size: 13.5px;
+  margin: 0 16px 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* RAZONES PRINCIPALES */
+.razones {
+  background: var(--naranja-razones);
+  padding: 56px 24px;
+}
+
+.razones__row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  color: #ffffff;
+}
+
+.razones__row--reverse {
+  flex-direction: row-reverse;
+}
+
+.razones__row h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.razones__row p {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.razones__row img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .razones__row,
+  .razones__row--reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+  .razones__row img {
+    width: 100%;
+    height: 200px;
+  }
+}
