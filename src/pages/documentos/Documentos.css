@@ -1,65 +1,79 @@
 .documentos-page {
   padding: 2.5rem;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e6f4fa 0%, #f0f9ff 100%);
+  background: linear-gradient(135deg, #e0f4fb 0%, #b8e6f5 50%, #e0f4fb 100%);
   font-family: "Segoe UI", Roboto, sans-serif;
 }
 
 .documentos-page h1 {
   color: #01579b;
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  text-shadow: 1px 1px 2px rgba(1, 87, 155, 0.1);
 }
 
 .documentos-page h1::before {
   content: "💧";
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .documento-form {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(1, 87, 155, 0.1);
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(1, 87, 155, 0.15);
+  border-top: 4px solid #0288d1;
 }
 
 .documento-form input {
   flex: 1;
   min-width: 160px;
-  padding: 0.7rem 1rem;
-  border: 1.5px solid #b3e0f2;
-  border-radius: 8px;
+  padding: 0.8rem 1.1rem;
+  border: 1.5px solid #cdeaf7;
+  border-radius: 10px;
   font-size: 0.95rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  color: #000000 !important;
+  background-color: #f8fdff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
-
 .documento-form input:focus {
   outline: none;
   border-color: #0288d1;
-  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.15);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(2, 136, 209, 0.12);
+}
+
+.documento-form input::placeholder {
+  color: #8fb8ca;
 }
 
 .documento-form button {
-  padding: 0.7rem 1.6rem;
-  background: linear-gradient(135deg, #0288d1, #01579b);
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(135deg, #29b6f6, #01579b);
   color: white;
   font-weight: 600;
+  font-size: 0.95rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(1, 87, 155, 0.3);
   transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .documento-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(1, 87, 155, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(1, 87, 155, 0.4);
+}
+
+.documento-form button:active {
+  transform: translateY(0);
 }
 
 .documentos-table {
@@ -67,26 +81,31 @@
   border-collapse: separate;
   border-spacing: 0;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(1, 87, 155, 0.1);
+  box-shadow: 0 8px 24px rgba(1, 87, 155, 0.15);
 }
 
 .documentos-table th {
-  background: linear-gradient(135deg, #0288d1, #01579b);
+  background: linear-gradient(135deg, #039be5, #01579b);
   color: white;
-  padding: 1rem;
+  padding: 1.1rem 1.2rem;
   text-align: left;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
 }
 
 .documentos-table td {
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.2rem;
   border-bottom: 1px solid #eaf6fb;
-  color: #333;
+  color: #37474f;
+  font-size: 0.95rem;
+}
+
+.documentos-table tbody tr {
+  transition: background-color 0.15s ease;
 }
 
 .documentos-table tbody tr:hover {
@@ -98,26 +117,44 @@
 }
 
 .documentos-table button {
-  padding: 0.4rem 0.9rem;
-  background-color: #ffebee;
+  padding: 0.5rem 1.1rem;
+  background-color: #fff0f0;
   color: #d32f2f;
-  border: 1px solid #ffcdd2;
-  border-radius: 6px;
+  border: 1.5px solid #ffcdd2;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .documentos-table button:hover {
   background-color: #ffcdd2;
+  transform: translateY(-1px);
 }
 
 .error {
-  color: #d32f2f;
+  color: #c62828;
   background: #fdecea;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #d32f2f;
-  margin-bottom: 1rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  border-left: 5px solid #d32f2f;
+  margin-bottom: 1.5rem;
   font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .documentos-page {
+    padding: 1.2rem;
+  }
+
+  .documento-form {
+    flex-direction: column;
+  }
+
+  .documentos-table {
+    display: block;
+    overflow-x: auto;
+  }
 }
