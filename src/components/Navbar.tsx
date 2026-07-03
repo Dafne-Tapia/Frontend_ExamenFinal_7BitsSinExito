@@ -9,7 +9,7 @@ const LINKS = [
   { label: "Procedimientos", to: "/procedimientos" },
   { label: "Documentos", to: "/documentos" },
   { label: "Horarios de Atencion", to: "/horario" },
-  { label: "Contactos", to: "/" },
+  { label: "Contactos", to: "/contactos" },
 ];
 
 export default function Navbar() {
