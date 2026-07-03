@@ -1,4 +1,4 @@
-const API_URL = "https://sevenbitssinexito-examenfinalbackend.onrender.com/api/procedimientos";
+import { API_URL } from "./api";
 
 export interface Procedimiento {
   id?: number;
@@ -7,12 +7,29 @@ export interface Procedimiento {
   orden: number;
 }
 
-export async function listarProcedimientos(): Promise<Procedimiento[]> {
-  const response = await fetch(API_URL);
+const BASE = `${API_URL}/api/procedimientos`;
 
-  if (!response.ok) {
-    throw new Error("No se pudieron cargar los procedimientos");
-  }
+export async function getProcedimientos(): Promise<Procedimiento[]> {
+  const res = await fetch(BASE);
+  if (!res.ok) throw new Error("Error al obtener los procedimientos");
+  return res.json();
+}
 
-  return response.json();
+export async function crearProcedimiento(data: Procedimiento): Promise<Procedimiento> {
+  const res = await fetch(BASE, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error("Error al crear el procedimiento");
+  return res.json();
+}
+
+export async function eliminarProcedimiento(id: number): Promise<void> {
+  const res = await fetch(`${BASE}/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) throw new Error("Error al eliminar el procedimiento");
 }
