@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { getContactos, createContacto, updateContacto, deleteContacto } from '../../services/contactoService.ts';
 import './Contactos.css';
 
 function Contactos() {
@@ -11,19 +12,19 @@ function Contactos() {
   const [formData, setFormData] = useState({
     tipo: '',
     descripcion: '',
-    valor: ''
+    valor: '',
+    orden: 0
   });
 
-  const API_URL = 'http://localhost:8080/api/contactos';
-
-  const cargarContactos = () => {
-    fetch(API_URL)
-      .then(res => res.json())
-      .then(data => {
-        setContactos(data);
-        setCargando(false);
-      })
-      .catch(() => setCargando(false));
+  const cargarContactos = async () => {
+    try {
+      const data = await getContactos();
+      setContactos(data);
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setCargando(false);
+    }
   };
 
   useEffect(() => {
@@ -34,35 +35,31 @@ function Contactos() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const method = editandoId ? 'PUT' : 'POST';
-    const url = editandoId ? `${API_URL}/${editandoId}` : API_URL;
-
-    const dataToSend = {
-      ...formData,
-      orden: 0
-    };
-
-    fetch(url, {
-      method: method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(dataToSend)
-    })
-      .then(() => {
-        cargarContactos();
-        setMostrarForm(false);
-        setEditandoId(null);
-        setFormData({ tipo: '', descripcion: '', valor: '' });
-      })
-      .catch(err => console.error('Error:', err));
+    try {
+      if (editandoId) {
+        await updateContacto(editandoId, formData);
+      } else {
+        await createContacto(formData);
+      }
+      cargarContactos();
+      setMostrarForm(false);
+      setEditandoId(null);
+      setFormData({ tipo: '', descripcion: '', valor: '', orden: 0 });
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (window.confirm('¿Eliminar este contacto?')) {
-      fetch(`${API_URL}/${id}`, { method: 'DELETE' })
-        .then(() => cargarContactos())
-        .catch(err => console.error('Error:', err));
+      try {
+        await deleteContacto(id);
+        cargarContactos();
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
   };
 
@@ -92,7 +89,7 @@ function Contactos() {
 
         {mostrarForm && (
           <form className="formulario-contacto" onSubmit={handleSubmit}>
-            <h3>{editandoId ? ' Editar Contacto' : 'Nuevo Contacto'}</h3>
+            <h3>{editandoId ? '✏️ Editar Contacto' : '📝 Nuevo Contacto'}</h3>
             <div className="form-grid">
               <input
                 name="tipo"
@@ -115,6 +112,14 @@ function Contactos() {
                 onChange={handleInputChange}
                 required
               />
+              <input
+                name="orden"
+                type="number"
+                placeholder="Orden"
+                value={formData.orden}
+                onChange={handleInputChange}
+                required
+              />
             </div>
             <div className="form-botones">
               <button type="submit" className="btn-guardar">
@@ -126,7 +131,7 @@ function Contactos() {
                 onClick={() => {
                   setMostrarForm(false);
                   setEditandoId(null);
-                  setFormData({ tipo: '', descripcion: '', valor: '' });
+                  setFormData({ tipo: '', descripcion: '', valor: '', orden: 0 });
                 }}
               >
                 Cancelar
@@ -153,7 +158,8 @@ function Contactos() {
                         setFormData({
                           tipo: c.tipo,
                           descripcion: c.descripcion,
-                          valor: c.valor
+                          valor: c.valor,
+                          orden: c.orden
                         });
                         setMostrarForm(true);
                       }}
