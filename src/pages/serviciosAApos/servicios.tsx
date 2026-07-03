@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import {
   getServicios,
   crearServicio,
+  actualizarServicio,
   eliminarServicio,
   type Servicio,
 } from "../../services/serviciosServiceAApos";
@@ -25,6 +26,7 @@ export default function Servicios() {
   const [form, setForm] = useState<Servicio>(FORM_INICIAL);
   const [enviando, setEnviando] = useState(false);
   const [mostrarForm, setMostrarForm] = useState(false);
+  const [editandoId, setEditandoId] = useState<number | null>(null);
 
   async function cargarServicios() {
     setCargando(true);
@@ -45,16 +47,48 @@ export default function Servicios() {
     cargarServicios();
   }, []);
 
+  function abrirFormNuevo() {
+    setForm(FORM_INICIAL);
+    setEditandoId(null);
+    setMostrarForm(true);
+  }
+
+  function abrirFormEditar(s: Servicio) {
+    setForm({
+      nombre: s.nombre,
+      descripcion: s.descripcion,
+      categoria: s.categoria,
+      estado: s.estado,
+      imagen: s.imagen,
+    });
+    setEditandoId(s.id ?? null);
+    setMostrarForm(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function cerrarForm() {
+    setMostrarForm(false);
+    setEditandoId(null);
+    setForm(FORM_INICIAL);
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setEnviando(true);
     try {
-      await crearServicio(form);
-      setForm(FORM_INICIAL);
-      setMostrarForm(false);
+      if (editandoId != null) {
+        await actualizarServicio(editandoId, form);
+      } else {
+        await crearServicio(form);
+      }
+      cerrarForm();
       await cargarServicios();
     } catch {
-      setError("No se pudo crear el servicio.");
+      setError(
+        editandoId != null
+          ? "No se pudo actualizar el servicio."
+          : "No se pudo crear el servicio."
+      );
     } finally {
       setEnviando(false);
     }
@@ -87,7 +121,7 @@ export default function Servicios() {
         <div className="servicios-toolbar">
           <button
             className="btn btn--primary"
-            onClick={() => setMostrarForm((v) => !v)}
+            onClick={() => (mostrarForm ? cerrarForm() : abrirFormNuevo())}
           >
             {mostrarForm ? "Cancelar" : "+ Agregar servicio"}
           </button>
@@ -126,7 +160,11 @@ export default function Servicios() {
               <option value="inactivo">Inactivo</option>
             </select>
             <button className="btn btn--primary" type="submit" disabled={enviando}>
-              {enviando ? "Guardando..." : "Guardar servicio"}
+              {enviando
+                ? "Guardando..."
+                : editandoId != null
+                ? "Actualizar servicio"
+                : "Guardar servicio"}
             </button>
           </form>
         )}
@@ -159,12 +197,20 @@ export default function Servicios() {
                   <h3>{s.nombre}</h3>
                   <p className="servicio-card__categoria">{s.categoria}</p>
                   <p className="servicio-card__desc">{s.descripcion}</p>
-                  <button
-                    className="btn btn--eliminar"
-                    onClick={() => handleEliminar(s.id)}
-                  >
-                    Eliminar
-                  </button>
+                  <div className="servicio-card__acciones">
+                    <button
+                      className="btn btn--editar"
+                      onClick={() => abrirFormEditar(s)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="btn btn--eliminar"
+                      onClick={() => handleEliminar(s.id)}
+                    >
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
               </article>
             ))}
