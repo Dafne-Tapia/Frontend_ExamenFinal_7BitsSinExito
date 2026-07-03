@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import "./procedimientos.css";
 
 interface Procedimiento {
@@ -84,17 +82,14 @@ export default function Procedimientos() {
 
   return (
     <>
-      <Navbar />
       <main className="procedimientos">
         <section className="procedimientos__hero">
-          {/* Gotitas de agua en el título principal */}
           <h1>💧 Procedimientos 💧</h1>
           <p>Pasos e instrucciones para acceder a los servicios de AAPOS.</p>
         </section>
 
         {error && <p className="procedimientos__error">⚠️ {error}</p>}
 
-        {/* Buscador por servicio */}
         <div className="procedimientos__buscador">
           <input
             type="number"
@@ -108,7 +103,6 @@ export default function Procedimientos() {
           </button>
         </div>
 
-        {/* Formulario agregar/editar */}
         <div className="procedimientos__formulario">
           <input
             type="text"
@@ -145,7 +139,6 @@ export default function Procedimientos() {
         <div className="procedimientos__lista">
           {procedimientos.map((proc, index) => (
             <div key={proc.id || index} className="procedimientos__card">
-              {/* Gotita de agua junto al número de paso */}
               <span>💧 Paso #{proc.orden}</span>
               <h3>{proc.paso}</h3>
               <p>Servicio ID: {proc.servicioId}</p>
@@ -167,7 +160,6 @@ export default function Procedimientos() {
           ))}
         </div>
       </main>
-      <Footer />
     </>
   );
 }
