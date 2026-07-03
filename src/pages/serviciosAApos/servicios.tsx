@@ -106,7 +106,7 @@ export default function Servicios() {
   }
 
   return (
-    <>
+      <>
       <Navbar />
 
       <section className="servicios-hero">
