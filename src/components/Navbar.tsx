@@ -8,7 +8,7 @@ const LINKS = [
   { label: "Requisitos", to: "/" },
   { label: "Procedimientos", to: "/procedimientos" }, // <-- SOLO ESTA LÍNEA SE TOCÓ
   { label: "Documentos", to: "/documentos" },
-  { label: "Horarios de Atencion", to: "/" },
+  { label: "Horarios de Atencion", to: "/Horario" },
   { label: "Contactos", to: "/" },
 ];
 
