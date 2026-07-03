@@ -7,8 +7,7 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/servicios" element={<Servicios />} /> */}
-
+        <Route path="/servicios" element={<Servicios />} />
       </Routes>
     </BrowserRouter>
   )
