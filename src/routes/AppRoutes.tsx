@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../Home.tsx'
 import Servicios from '../pages/serviciosAApos/servicios.tsx'
 import Documentos from '../pages/documentos/Documentos.tsx'
+import Contactos from "../pages/Contactos/Contactos.jsx";
 
 export default function AppRoutes() {
   return (
@@ -10,6 +11,7 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/documentos" element={<Documentos />} />
+        <Route path="/contactos" element={<Contactos />} />
       </Routes>
     </BrowserRouter>
   )
