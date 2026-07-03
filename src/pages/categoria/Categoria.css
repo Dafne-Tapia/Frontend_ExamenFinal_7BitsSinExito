@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/*
+  Paleta AAPOS — inspirada en agua:
+  --aapos-azul-profundo #0284c7   (hero, texto fuerte)
+  --aapos-cielo         #38bdf8   (acentos, hover)
+  --aapos-turquesa      #14b8a6   (tarjetas, botón primario)
+  --aapos-coral         #fb7185  (eliminar, alertas suaves)
+  --aapos-sol           #fbbf24  (badges de fecha)
+  --aapos-tinta         #0f2436  (texto principal)
+*/
+
+.categorias-hero {
+    position: relative;
+    background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 48%, #14b8a6 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 56px 24px 76px;
+    overflow: hidden;
+}
+
+.categorias-hero::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.categorias-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 42px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 42' preserveAspectRatio='none'><path d='M0,21 C150,42 350,0 600,21 C850,42 1050,0 1200,21 L1200,42 L0,42 Z' fill='%23ffffff'/></svg>") repeat-x;
+    background-size: 1200px 42px;
+}
+
+.categorias-hero h1 {
+    position: relative;
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: 0.2px;
+    margin: 0 0 12px;
+}
+
+.categorias-hero p {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.categorias-contenido {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 8px 24px 64px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.categorias-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 11px 22px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+    color 0.18s ease, box-shadow 0.18s ease, transform 0.08s ease;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.45);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
+}
+
+.btn--primary:hover:not(:disabled) {
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn--editar {
+    background: #f0fbfa;
+    color: #0f766e;
+    border-color: #b7e8e2;
+}
+
+.btn--editar:hover:not(:disabled) {
+    background: #dcf6f2;
+    border-color: #8fdcd2;
+}
+
+.btn--eliminar {
+    background: #fff1f2;
+    color: #e11d48;
+    border-color: #fecdd3;
+}
+
+.btn--eliminar:hover:not(:disabled) {
+    background: #ffe4e6;
+    border-color: #fca5b1;
+}
+
+.categorias-form {
+    width: 60%;
+    min-width: 320px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid #e7f4f3;
+    border-top: 4px solid;
+    border-image: linear-gradient(90deg, #0ea5e9, #14b8a6) 1;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
+}
+
+.categorias-form input {
+    grid-column: 1 / -1;
+}
+
+.categorias-form textarea {
+    grid-column: 1 / -1;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.categorias-form input,
+.categorias-form textarea {
+    padding: 11px 14px;
+    border: 1.5px solid #dce8ea;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #0f2436;
+    background: #fafdfd;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.categorias-form input::placeholder,
+.categorias-form textarea::placeholder {
+    color: #94a3ac;
+}
+
+.categorias-form input:focus,
+.categorias-form textarea:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+    background: #ffffff;
+}
+
+.categorias-form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+}
+
+.categorias-error {
+    background: #fff1f2;
+    color: #be123c;
+    border-left: 4px solid #fb7185;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.categorias-estado {
+    text-align: center;
+    color: #5b7480;
+    padding: 48px 0;
+    font-size: 15px;
+}
+
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+@media (max-width: 1100px) {
+    .categorias-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .categorias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categorias-form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .categorias-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.categoria-card {
+    position: relative;
+    border: 1px solid #eef2f3;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(15, 36, 54, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.categoria-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(15, 36, 54, 0.12);
+}
+
+.categoria-card::before {
+    content: "";
+    display: block;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, #0ea5e9, #14b8a6);
+}
+
+.categoria-card:nth-child(4n+2)::before {
+    background: linear-gradient(90deg, #14b8a6, #34d399);
+}
+
+.categoria-card:nth-child(4n+3)::before {
+    background: linear-gradient(90deg, #fb7185, #fb923c);
+}
+
+.categoria-card:nth-child(4n+4)::before {
+    background: linear-gradient(90deg, #a78bfa, #38bdf8);
+}
+
+.categoria-card__body {
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.categoria-card h3 {
+    margin: 0;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #0f2436;
+}
+
+.categoria-card__desc {
+    font-size: 14px;
+    color: #4b5f68;
+    line-height: 1.5;
+    margin: 4px 0 0;
+}
+
+.categoria-card__fecha {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #92660a;
+    background: #fef3c7;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin: 8px 0 0;
+}
+
+.categoria-card__acciones {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.categoria-card__acciones .btn {
+    flex: 1;
+    padding: 9px 14px;
+}
