@@ -6,7 +6,7 @@ const LINKS = [
   { label: "Servicio", to: "/servicios" },
   { label: "Categorias-Serv", to: "/categoria" },
   { label: "Requisitos", to: "/" },
-  { label: "Procedimientos", to: "/" },
+  { label: "Procedimientos", to: "/procedimientos" }, // <-- SOLO ESTA LÍNEA SE TOCÓ
   { label: "Documentos", to: "/documentos" },
   { label: "Horarios de Atencion", to: "/Horario" },
   { label: "Contactos", to: "/" },

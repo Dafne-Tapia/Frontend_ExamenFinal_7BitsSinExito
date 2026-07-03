@@ -1,0 +1,212 @@
+.procedimientos {
+  min-height: 80vh;
+  /* Capa semi-transparente + tu imagen corporativa desde la carpeta public */
+  background: linear-gradient(rgba(240, 248, 255, 0.85), rgba(232, 244, 253, 0.92)),
+              url('/aapospotosi.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 40px 8%;
+}
+
+.procedimientos__hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.procedimientos__hero h1 {
+  color: #005b96;
+  font-size: 42px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.procedimientos__hero p {
+  color: #003b73;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.procedimientos__buscador {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  padding: 16px;
+  border-radius: 20px; /* Bordes redondeados estilo burbuja */
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.08);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.procedimientos__buscador input {
+  padding: 10px 14px;
+  border: 2px solid #90e0ef; /* Color agua claro */
+  border-radius: 20px;
+  font-size: 15px;
+  width: 200px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.procedimientos__buscador input:focus {
+  border-color: #0077b6;
+}
+
+.procedimientos__buscador button {
+  padding: 10px 20px;
+  background: #005b96;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.procedimientos__buscador button:hover {
+  background: #003b73;
+}
+
+.procedimientos__formulario {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.08);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.procedimientos__formulario input {
+  padding: 10px 14px;
+  border: 2px solid #90e0ef;
+  border-radius: 20px;
+  font-size: 15px;
+  flex: 1;
+  min-width: 150px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.procedimientos__formulario input:focus {
+  border-color: #0077b6;
+}
+
+.procedimientos__formulario button {
+  padding: 10px 20px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s ease;
+}
+
+.procedimientos__formulario button:hover {
+  background: #005b96;
+}
+
+.procedimientos__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.procedimientos__card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  padding: 28px 24px;
+  border-radius: 24px 4px 24px 24px; /* Esquina asimétrica simulando una gota de agua */
+  border-left: 6px solid #00a8e8; /* Azul agua vibrante */
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.procedimientos__card:hover {
+  transform: translateY(-5px); /* Efecto de flotación */
+  box-shadow: 0 12px 28px rgba(0, 119, 182, 0.18);
+}
+
+.procedimientos__card span {
+  background: linear-gradient(135deg, #00a8e8, #0077b6);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.procedimientos__card h3 {
+  color: #003b73;
+  margin-top: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.procedimientos__card p {
+  color: #555;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.procedimientos__card-acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.procedimientos__btn-editar {
+  padding: 6px 14px;
+  background: #90e0ef; /* Fondo celeste suave */
+  color: #003b73;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.procedimientos__btn-editar:hover {
+  background: #0077b6;
+  color: white;
+}
+
+.procedimientos__btn-eliminar {
+  padding: 6px 14px;
+  background: #ffccd5; /* Fondo rojo/rosado pastel */
+  color: #a70000;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.procedimientos__btn-eliminar:hover {
+  background: #d32f2f;
+  color: white;
+}
+
+.procedimientos__mensaje,
+.procedimientos__error {
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.procedimientos__error {
+  color: #d32f2f;
+  background: #fdecea;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.1);
+}
