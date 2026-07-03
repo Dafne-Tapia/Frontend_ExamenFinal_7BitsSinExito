@@ -5,7 +5,7 @@ import Documentos from '../pages/documentos/Documentos.tsx'
 
 export default function AppRoutes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/FRONTEND_EXAMENFINAL_7BITS/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Servicios />} />
