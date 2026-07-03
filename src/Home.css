@@ -24,34 +24,27 @@
 /* HERO */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .hero__photo,
-.hero__poster {
-  width: 100%;
-  height: 320px;
+.hero__poster,
+.hero__wide {
+  width: 98%;
+  height: 110vh;
   object-fit: cover;
   display: block;
 }
 
-.hero__wide {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-}
 
 @media (max-width: 700px) {
   .hero {
     grid-template-columns: 1fr;
   }
   .hero__photo,
-  .hero__poster {
-    height: 240px;
-  }
+  .hero__poster,
   .hero__wide {
-    height: 260px;
+    height: 240px;
   }
 }
 

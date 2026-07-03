@@ -20,30 +20,35 @@ const NOTICIAS = [
     titulo: "ACCIÓN COMUNAL DE LIMPIEZA LAGUNAS DEL KARI KARI",
     texto:
       "De la mano de todos los trabajadores de AAPOS POTOSÍ, se realizó la tarea de limpieza y mantenimiento de nuestras lagunas de la cuenca del Kari Kari.",
-    thumb: "REEMPLAZA_HASH_VIDEO_1",
+    video:
+      "https://www.aapospotosi.com/gallery/406710365_7079647365391039_3478056463346338230_n-ts1701348720.mp4",
   },
   {
     titulo: "AAPOS POTOSÍ",
     texto:
       "Te recuerda: las conexiones clandestinas son un delito que perjudica a todos, contaminan el agua potable y no permiten que más familias accedan al servicio. Si conoces algún vecino con conexión ilegal o clandestina, denuncia.",
-    thumb: "REEMPLAZA_HASH_VIDEO_2",
+    video:
+      "https://www.aapospotosi.com/gallery/406710365_7079647365391039_3478056463346338230_n-ts1701348720.mp4",
   },
   {
     titulo: "Distribución de agua mediante cisternas",
     texto: "Estamos trabajando día a día para brindar un mejor servicio.",
-    thumb: "REEMPLAZA_HASH_VIDEO_3",
+    video:
+      "https://www.aapospotosi.com/gallery/406710365_7079647365391039_3478056463346338230_n-ts1701348720.mp4",
   },
   {
     titulo: "Trasvase Juchuy Chaluma – Lacachaca",
     texto:
       "Se puso en funcionamiento el proyecto provisional de aducción de trasvase de la Laguna Juchuy Chaluma - Lacachaca de la zona alta de la ciudad de Potosí. Más de 20 mil usuarios serán beneficiados, proyecto financiado por el Gobierno Autónomo Departamental de Potosí.",
-    thumb: "REEMPLAZA_HASH_VIDEO_4",
+    video:
+      "https://www.aapospotosi.com/gallery/406710365_7079647365391039_3478056463346338230_n-ts1701348720.mp4",
   },
   {
     titulo: "¡Seguimos trabajando!",
     texto:
       "Se realiza la entrega de tanques estacionarios de 5.000 litros al municipio de Potosí, mismos que beneficiarán a las zonas más afectadas por la sequía.",
-    thumb: "REEMPLAZA_HASH_VIDEO_5",
+    video:
+      "https://www.aapospotosi.com/gallery/406710365_7079647365391039_3478056463346338230_n-ts1701348720.mp4",
   },
 ];
 
@@ -64,13 +69,14 @@ export default function Home() {
           src={img(HERO_MASCOT_POSTER)}
           alt="AAPOS Administración Autónoma para Obras Sanitarias"
         />
-      </section>
-
-      <img
+        <img
         className="hero__wide"
         src={img(FULL_WIDTH_BUILDING_PHOTO)}
         alt="Edificio central AAPOS"
       />
+      </section>
+
+      
 
       {/* FRANJA DE MISIÓN */}
       <section className="mision">
@@ -131,16 +137,19 @@ export default function Home() {
         <div className="informa__grid">
           {NOTICIAS.map((n) => (
             <article className="informa__card" key={n.titulo}>
-              <div className="informa__thumb-wrap">
-                <img
-                  className="informa__thumb"
-                  src={img(n.thumb)}
-                  alt={n.titulo}
-                />
-                <span className="informa__play" aria-hidden="true">
-                  ▶
-                </span>
-              </div>
+              {"video" in n && n.video ? (
+                <video className="informa__thumb" controls preload="metadata">
+                  <source src={n.video} type="video/mp4" />
+                  Tu navegador no soporta video HTML5.
+                </video>
+              ) : (
+                <div className="informa__thumb-wrap">
+        
+                  <span className="informa__play" aria-hidden="true">
+                    ▶
+                  </span>
+                </div>
+              )}
               <h3>{n.titulo}</h3>
               <p>{n.texto}</p>
             </article>
